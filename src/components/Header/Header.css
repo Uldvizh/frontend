@@ -1,9 +1,11 @@
 .navbar{
-    background: rgba(92, 63, 108, 0.141);
-    border: 2px solid rgba(255, 255, 255, 0.227);
+    
     border-radius: 1rem;
     width: 100%;
     backdrop-filter: blur(70px);
+}
+.logoHeader{
+    height: 10cqh;
 }
 ul{
     display: flex;
@@ -22,4 +24,7 @@ ul{
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
+}
+.nav-link{
+    font-size: 1.6cqh;
 }

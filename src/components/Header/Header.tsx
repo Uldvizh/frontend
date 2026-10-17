@@ -1,13 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { Link } from "react-router-dom";
+import Logo from "./../../assets/logo.png"
 import "./Header.css";
 const Navbar = () => {
   return (
-    <nav className="navbar sticky-top navbar-expand-lg navbar-dark shadow-sm">
+    <nav className="navbar navbar-expand-lg navbar-dark shadow-sm">
       <div className="container">
         <Link className="navbar-brand fw-bold" to="/">
-          УлДвиж
+          <img className='logoHeader' src={Logo} alt="" />
         </Link>
 
         <button
@@ -45,7 +46,7 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/events">
-                  Афиша
+                  Стендапы
                 </Link>
               </li>
 
@@ -54,12 +55,12 @@ const Navbar = () => {
 
               <li className="nav-item">
                 <Link className="nav-link" to="/loginDev">
-                  Вход
+                  Фестивали
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/afishaAdmin">
-                  Админ
+                  Концерты
                 </Link>
               </li>
             </ul>

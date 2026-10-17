@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Sclate';
+  src: url('./fonts/Sclate.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 *{
   margin: 0;
   padding: 0;
@@ -86,154 +94,86 @@ p {
   margin: 0;
 } 
 */
-
+body{
+  width: 100vw;
+  height: 100%;
+}
 .bg-color{
   background-color: var(--accent-bg);
 }
 .main{
-  height: 98svh;
-  width: 100vw;}
-#main2{
-  
-  
-  background: url('./assets/background.png') center center no-repeat;
-  background-size: cover;
+  height: 100svh;
+  width: 100%;
+  background-color: #0A070E;
 }
 #main1{
-   display: flex;
-   justify-content: center;
-   align-items: start;
-}
-#main1 h1{
-  margin-top: 17cqh;
-  font-size: 30cqh;
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  z-index: 1;
-}
-.girlCanvas{
+  overflow: hidden;
   width: 100%;
-  height: 100%;
-  background: url("./assets/canvasGrl.png") bottom center no-repeat;
-  background-size: 50%;
-  position: absolute;
-  filter: drop-shadow(0 -0.2cqh 2cqh rgb(17, 0, 15));
-  z-index: 4;
 }
-.arrow-animated{
-  width: 20cqh;
-  height: 20cqh;
-  position: absolute;
-  bottom: 10cqh;
-  transform: rotate(-180deg);
-}
-#arrow-left{
-  left:30cqh;
-}
-#arrow-right{
-  right: 30cqh;
-  transform: rotate(180deg) scaleX(-1);
-}
-.textLabels{
-  position: absolute;
-  font-size: 4cqh;
-  z-index: 2;
-  padding: 1cqh;
-  border-radius: 2cqh;
-  /* filter: drop-shadow(.2cqh .2cqh 1cqh black);
-   */
-   backdrop-filter: blur(1cqh);
-   border: .5cqh dotted black;
+.background-canvas{
+  width: 100vw;
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow: hidden;
 
+}
+.background-canvas svg{
+  width: 1421;
+  height: 779;
+  angle: 0 deg;
+  opacity: 1;
+  top: 314px;
+}
+.mainBarCanvas {
+  position: absolute;
+  width: 92cqw;
+  height: 72cqh;
+  top: 19cqh;
+  border-radius: 8cqh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   
-}
-#textLabel1{
-  left:7cqh;
-  top: 10cqh;
-  transform: rotate(-10deg);
-  animation: label1 1s linear;
-}
-#textLabel2{
-  top: 5cqh;
-  animation: label2 1s linear;
-}
-#textLabel3{
-  top: 10cqh;
-  right: 7cqh;
-  transform: rotate(10deg);
-  animation: label3 1s linear;
+  /* Liquid Glass эффект */
+  backdrop-filter: blur(2cqh) saturate(-180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background-color: rgba(148, 83, 223, 0.126);
+  /* Граница с градиентом для эффекта стекла */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  
+  /* Свечение и тени */
+  
+  opacity: 1;
 }
 
+.left-bar-Canvas{
+  width: 45%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-@keyframes label1 {
-  0%{
-    top: 200cqh;
-    transform: rotate(100deg);
-    border: 0;
-    opacity: 0;
-  }
-  75%{
-    top: 20cqh;
-    opacity: 0.1;
-  }
-  80%{
-    opacity: 0.6;
-    border: 0;
-  }
-  99%{
-    opacity: 1;
-  }
-  100%{
-    top: 10cqh;
-    left: 7cqh;
-    transform: rotate(10);
-  }
 }
-@keyframes label2 {
-  0%{
-    top: 200cqh;
-    transform: rotate(-200deg);
-    border: 0;
-    opacity: 0;
-  }
-  75%{
-    top: 20cqh;
-    opacity: 0.1;
-  }
-  80%{
-    opacity: 0.6;
-    border: 0;
-  }
-  99%{
-    opacity: 1;
-  }
-  100%{
-    transform: rotate(0);
-    top: 5cqh;
-    
-  }
+.right-bar-Canvas{
+  width: 55%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
 }
-@keyframes label3 {
-  0%{
-    top: 200cqh;
-    transform: rotate(-200deg);
-    border: 0;
-    opacity: 0;
-  }
-  75%{
-    top: 20cqh;
-    opacity: 0.1;
-  }
-  80%{
-    opacity: 0.6;
-    border: 0;
-  }
-  99%{
-    opacity: 1;
-  }
-  100%{
-    top: 10cqh;
-  right: 7cqh;
-  transform: rotate(10deg);
-    
-  }
+.textLabel{
+font-family: 'Sclate';
+font-style: normal;
+font-weight: 400;
+font-size: 14cqh;
+line-height: 209px;
+color: #CF4AF1;
+margin-left:10cqh;
+}
+.GirlCanvas{
+  width: 80cqh;
+  filter: drop-shadow(-5cqh .2cqh 12cqh rgb(0, 0, 0));
 }
