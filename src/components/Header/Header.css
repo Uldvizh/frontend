@@ -137,7 +137,7 @@ body {
 
 .header {
   position: fixed;
-  top: 2cqh;
+  top: 1.2cqh;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
@@ -164,7 +164,7 @@ body {
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-radius: 5cqh;
-  box-shadow: 0 0.8cqh 3.2cqh rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0.8cqh 3.2cqh rgba(0, 0, 0, 0.18);
 }
 
 .header-container {

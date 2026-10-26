@@ -7,11 +7,32 @@ const Home = () => {
 
   return (
     <div>
+      <svg width="0" height="0" style={{ position: 'absolute', pointerEvents: 'none' }}>
+        <defs>
+          <filter id="liquid-morph" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" result="noise" />
+            <feDisplacementMap 
+              in="SourceGraphic" 
+              in2="noise" 
+              scale="var(--morph-scale, 0)" 
+              xChannelSelector="R" 
+              yChannelSelector="G" 
+            />
+          </filter>
+        </defs>
+      </svg>
+
       <main className="main" id="main1">
         <Header />
-
+        
         <div className="background-canvas">
-          <Carousel className="fullscreen-carousel" fade={false} controls={true} indicators={true}>
+          <Carousel 
+            className="glass-carousel" 
+            fade 
+            interval={5000} 
+            indicators={true} 
+            controls={true}
+          >
             <Carousel.Item>
               <div className="carousel-slide bg-primary">
                 <h2>{Lang.home.slide1}</h2>

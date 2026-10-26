@@ -15,7 +15,8 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-const sliderTranslate = lang === 'en' ? '0' : 'calc(100% - .2cqh)';
+  // Плавное смещение слайдера
+  const sliderTranslate = lang === 'en' ? '0' : 'calc(100% - 0.2cqh)';
 
   return (
     <header className={`header ${isScrolled ? 'header-collapsed' : 'header-expanded'}`}>
@@ -30,11 +31,12 @@ const sliderTranslate = lang === 'en' ? '0' : 'calc(100% - .2cqh)';
 
         <div className="header-right">
           <div className="language-toggle">
-            {/* Скользящий индикатор */}
+            {/* Жидкий слайдер, который ездит под текстом */}
             <div 
               className="lang-slider"
               style={{ transform: `translateX(${sliderTranslate})` }}
             />
+            
             <button 
               className={`lang-btn ${lang === 'en' ? 'active' : ''}`}
               onClick={() => setLang('en')}
