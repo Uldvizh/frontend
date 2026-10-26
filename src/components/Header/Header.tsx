@@ -1,74 +1,38 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import { Link } from "react-router-dom";
-import Logo from "./../../assets/logo.png"
-import "./Header.css";
-const Navbar = () => {
+import { useState, useEffect } from 'react';
+import './Header.css';
+
+const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark shadow-sm">
-      <div className="container">
-        <Link className="navbar-brand fw-bold" to="/">
-          <img className='logoHeader' src={Logo} alt="" />
-        </Link>
-
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#mainNavbar"
-          aria-controls="mainNavbar"
-          aria-label="Переключить навигацию"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div
-          className="offcanvas offcanvas-end"
-          id="mainNavbar"
-          aria-labelledby="mainNavbarLabel"
-        >
-          <div className="offcanvas-header">
-            <h5 className="offcanvas-title text-white" id="mainNavbarLabel">
-              УлДвиж
-            </h5>
-            <button
-              type="button"
-              className="btn-close btn-close-white"
-              data-bs-dismiss="offcanvas"
-              aria-label="Закрыть"
-            ></button>
+    <header className={`header ${isScrolled ? 'header-collapsed' : 'header-expanded'}`}>
+      <div className="header-container">
+        <div className="header-left">
+          <div className="logo-wrapper">
+            <div className="logo">
+              <span className="logo-text">ULDVIZH</span>
+            </div>
           </div>
+        </div>
 
-          <div className="offcanvas-body">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/events">
-                  Стендапы
-                </Link>
-              </li>
-
-              
-               
-
-              <li className="nav-item">
-                <Link className="nav-link" to="/loginDev">
-                  Фестивали
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/afishaAdmin">
-                  Концерты
-                </Link>
-              </li>
-            </ul>
+        <div className="header-right">
+          <div className="language-toggle">
+            <button className="lang-btn">ENG</button>
+            <button className="lang-btn active">RU</button>
           </div>
         </div>
       </div>
-    </nav>
+    </header>
   );
 };
 
-export default Navbar;
+export default Header;
