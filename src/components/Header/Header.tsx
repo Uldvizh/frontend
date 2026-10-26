@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 import './Header.css';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { lang, setLang, Lang } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,21 +15,38 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+const sliderTranslate = lang === 'en' ? '0' : 'calc(100% - .2cqh)';
+
   return (
     <header className={`header ${isScrolled ? 'header-collapsed' : 'header-expanded'}`}>
       <div className="header-container">
         <div className="header-left">
           <div className="logo-wrapper">
             <div className="logo">
-              <span className="logo-text">ULDVIZH</span>
+              <span className="logo-text">{Lang.header.logo}</span>
             </div>
           </div>
         </div>
 
         <div className="header-right">
           <div className="language-toggle">
-            <button className="lang-btn">ENG</button>
-            <button className="lang-btn active">RU</button>
+            {/* Скользящий индикатор */}
+            <div 
+              className="lang-slider"
+              style={{ transform: `translateX(${sliderTranslate})` }}
+            />
+            <button 
+              className={`lang-btn ${lang === 'en' ? 'active' : ''}`}
+              onClick={() => setLang('en')}
+            >
+              {Lang.header.langEng}
+            </button>
+            <button 
+              className={`lang-btn ${lang === 'ru' ? 'active' : ''}`}
+              onClick={() => setLang('ru')}
+            >
+              {Lang.header.langRu}
+            </button>
           </div>
         </div>
       </div>

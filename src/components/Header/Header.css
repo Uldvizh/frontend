@@ -255,8 +255,8 @@ body {
   align-items: center;
   gap: 1.2cqh;
 }
-
 .language-toggle {
+  position: relative;
   display: flex;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -264,6 +264,7 @@ body {
   padding: 0.3cqh;
   gap: 0.2cqh;
   transition: all 0.5s ease;
+  overflow: hidden;
 }
 
 .header-collapsed .language-toggle {
@@ -271,7 +272,28 @@ body {
   background: rgba(255, 255, 255, 0.12);
 }
 
+.lang-slider {
+  position: absolute;
+  top: 0.3cqh;
+  left: 0.3cqh;
+  width: calc(50% - 0.1cqh);
+  height: calc(100% - 0.6cqh);
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 1.6cqh;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.header-collapsed .lang-slider {
+  top: 0.2cqh;
+  left: 0.2cqh;
+  height: calc(100% - 0.4cqh);
+}
+
 .lang-btn {
+  position: relative;
+  z-index: 1;
   padding: 0.6cqh 1.4cqh;
   border-radius: 1.6cqh;
   border: none;
@@ -280,7 +302,7 @@ body {
   font-size: 1.3cqh;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
   font-family: inherit;
 }
 
@@ -294,10 +316,8 @@ body {
 }
 
 .lang-btn.active {
-  background: rgba(255, 255, 255, 0.15);
   color: #ffffff;
 }
-
 @keyframes slideDown {
   from {
     transform: translateX(-50%) translateY(-100%);
