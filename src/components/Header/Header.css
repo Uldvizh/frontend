@@ -20,7 +20,6 @@
 }
 
 .main {
-  height: 100svh;
   width: 100%;
   background-color: #000000;
 }
@@ -32,10 +31,10 @@
 
 .background-canvas {
   width: 100vw;
-  height: 100svh;
+  height: 98svh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: end;
   flex-wrap: nowrap;
   overflow: hidden;
 }

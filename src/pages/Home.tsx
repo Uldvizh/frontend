@@ -1,12 +1,19 @@
+import { useState } from 'react';
 import Header from "./../components/Header/Header";
 import { useLanguage } from '../context/LanguageContext';
 import GalleryBar from "../components/GalleryBar/GalleryBar";
 import HeroCarousel from "../components/HeroCarousel/HeroCarousel";
 
+const eventTypes = [
+  { id: 'standup', name: 'Стендапы' },
+  { id: 'festival', name: 'Фестивали' },
+  { id: 'concert', name: 'Концерты' }
+];
+
 const Home = () => {
   const { Lang } = useLanguage();
+  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
 
-  // Определяем слайды, используя переводы и добавляя красивые фоны
   const heroSlides: SlideData[] = [
     {
       id: 1,
@@ -25,9 +32,14 @@ const Home = () => {
     }
   ];
 
+  const toggleType = (id: string) => {
+    setSelectedTypes(prev =>
+      prev.includes(id) ? prev.filter(t => t !== id) : [...prev, id]
+    );
+  };
+
   return (
     <div>
-      {/* Твой SVG фильтр остаётся на месте */}
       <svg width="0" height="0" style={{ position: 'absolute', pointerEvents: 'none' }}>
         <defs>
           <filter id="liquid-morph" x="-20%" y="-20%" width="140%" height="140%">
@@ -45,15 +57,13 @@ const Home = () => {
 
       <main className="main" id="main1">
         <Header />
-        
         <div className="background-canvas">
-          {/* Заменяем react-bootstrap на наш кастомный HeroCarousel */}
           <HeroCarousel slides={heroSlides} />
         </div>
       </main>
 
       <main className="main" id="main2">
-        <GalleryBar />
+        <GalleryBar selectedTypes={selectedTypes} />
       </main>
     </div>
   );
