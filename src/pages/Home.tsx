@@ -1,13 +1,33 @@
 import Header from "./../components/Header/Header";
-import { Carousel } from 'react-bootstrap';
 import { useLanguage } from '../context/LanguageContext';
 import GalleryBar from "../components/GalleryBar/GalleryBar";
+import HeroCarousel from "../components/HeroCarousel/HeroCarousel";
 
 const Home = () => {
   const { Lang } = useLanguage();
 
+  // Определяем слайды, используя переводы и добавляя красивые фоны
+  const heroSlides: SlideData[] = [
+    {
+      id: 1,
+      image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&q=80",
+      title: Lang.home.slide1 || "Добро пожаловать"
+    },
+    {
+      id: 2,
+      image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200&q=80",
+      title: Lang.home.slide2 || "Незабываемые эмоции"
+    },
+    {
+      id: 3,
+      image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&q=80",
+      title: Lang.home.slide3 || "Присоединяйтесь к нам"
+    }
+  ];
+
   return (
     <div>
+      {/* Твой SVG фильтр остаётся на месте */}
       <svg width="0" height="0" style={{ position: 'absolute', pointerEvents: 'none' }}>
         <defs>
           <filter id="liquid-morph" x="-20%" y="-20%" width="140%" height="140%">
@@ -27,36 +47,13 @@ const Home = () => {
         <Header />
         
         <div className="background-canvas">
-          <Carousel 
-            className="glass-carousel" 
-            fade 
-            interval={5000} 
-            indicators={true} 
-            controls={true}
-          >
-            <Carousel.Item>
-              <div className="carousel-slide bg-primary">
-                <h2>{Lang.home.slide1}</h2>
-              </div>
-            </Carousel.Item>
-
-            <Carousel.Item>
-              <div className="carousel-slide bg-secondary">
-                <h2>{Lang.home.slide2}</h2>
-              </div>
-            </Carousel.Item>
-
-            <Carousel.Item>
-              <div className="carousel-slide bg-dark">
-                <h2>{Lang.home.slide3}</h2>
-              </div>
-            </Carousel.Item>
-          </Carousel>
+          {/* Заменяем react-bootstrap на наш кастомный HeroCarousel */}
+          <HeroCarousel slides={heroSlides} />
         </div>
       </main>
 
       <main className="main" id="main2">
-        <GalleryBar></GalleryBar>
+        <GalleryBar />
       </main>
     </div>
   );
