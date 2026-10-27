@@ -1,10 +1,10 @@
 .gallery-cards-canvas {
     column-count: 3;
-    column-gap: 10px;
-    padding: 20px;
-    max-width: 1200px;
+    column-gap: 1cqh;
+    padding: 2cqh;
+    max-width: 120cqh;
     margin: 0 auto;
-    background-color: #0b0a0f;
+    background:linear-gradient( #0b0a0f,  #040406);
     min-height: 100vh;
 }
 
@@ -46,17 +46,17 @@
 
 .card-badge {
     position: absolute;
-    top: 12px;
-    right: 12px;
-    padding: 4px 10px;
-    border-radius: 6px;
+    top: 1.2cqh;
+    right: 1.2cqh;
+    padding: .4cqh 1cqh;
+    border-radius: .6cqh;
     background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(.4cqh);
     color: #fff;
-    font-size: 12px;
+    font-size: 1.2cqh;
     font-weight: 700;
-    letter-spacing: 0.05em;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    letter-spacing: 0.05cqh;
+    border: .1cqh solid rgba(255, 255, 255, 0.1);
     z-index: 2;
 }
 
@@ -65,31 +65,31 @@
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 16px;
+    padding: 1.6cqh;
     z-index: 2;
     color: #ffffff;
 }
 
 .card-title {
-    margin: 0 0 8px 0;
-    font-size: 18px;
+    margin: 0 0 .8cqh 0;
+    font-size: 1.8cqh;
     font-weight: 600;
     line-height: 1.3;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.01cqh;
 }
 
 .card-meta {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    font-size: 13px;
+    gap: .4cqh;
+    font-size: 1.3cqh;
     color: rgba(255, 255, 255, 0.8);
 }
 
 .card-meta-item {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: .6cqh;
 }
 
 @media (max-width: 1024px) {

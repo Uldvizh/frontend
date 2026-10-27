@@ -17,64 +17,7 @@ const GalleryBar = () => {
             img: "",
             address: "ул. Ленина, 10"
         },
-        {
-            name: "Концерт группы XYZ",
-            date: "2026-11-15",
-            minAge: 16,
-            img: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=600&q=80",
-            address: "ул. Ленина, 10"
-        },
-        {
-            name: "Концерт группы XYZ",
-            date: "2026-11-15",
-            minAge: 16,
-            img: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=600&q=80",
-            address: "ул. Ленина, 10"
-        },
-        {
-            name: "Концерт группы XYZ",
-            date: "2026-11-15",
-            minAge: 16,
-            img: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=600&q=80",
-            address: "ул. Ленина, 10"
-        },
-        {
-            name: "Концерт группы XYZ",
-            date: "2026-11-15",
-            minAge: 16,
-            img: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=600&q=80",
-            address: "ул. Ленина, 10"
-        },
-        {
-            name: "Концерт группы XYZ",
-            date: "2026-11-15",
-            minAge: 16,
-            img: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=600&q=80",
-            address: "ул. Ленина, 10"
-        },
-        {
-            name: "Концерт группы XYZ",
-            date: "2026-11-15",
-            minAge: 16,
-            img: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=600&q=80",
-            address: "ул. Ленина, 10"
-        },
-        {
-            name: "Концерт группы XYZ",
-            date: "2026-11-15",
-            minAge: 16,
-            img: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=600&q=80",
-            address: "ул. Ленина, 10"
-        },
 
-        
-        {
-            name: "Стендап шоу",
-            date: "2026-11-20",
-            minAge: 18,
-            img: "https://images.unsplash.com/photo-1585699324551-f6c309eedeca?w=600&q=80",
-            address: "ул. Пушкина, 5"
-        }
     ];
 
     return (

@@ -15,12 +15,6 @@
   background-color: black;
 }
 
-body {
-  width: 100vw;
-  height: 100%;
-  background: radial-gradient(black 70%,rgb(35, 35, 35));
-}
-
 .bg-color {
   background-color: var(--accent-bg);
 }
@@ -28,7 +22,7 @@ body {
 .main {
   height: 100svh;
   width: 100%;
-  background-color: #0A070E;
+  background-color: #000000;
 }
 
 #main1 {
