@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './GalleryBar.css';
+import photo from './../../assets/photo_2026-10-22_08-14-24.jpg'
 
 interface CardData {
     id: number;
@@ -38,7 +39,7 @@ const GalleryBar = () => {
             name: "Концерт группы XYZ",
             date: "15 ноября 2026",
             minAge: 16,
-            img: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=600&q=80",
+            img: photo,
             address: "ул. Ленина, 10",
             type: "concert"
         },
