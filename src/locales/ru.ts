@@ -9,4 +9,9 @@ export const ru = {
     slide2: "Слайд 2",
     slide3: "Слайд 3",
   },
+  events: {
+    standup: "стендапы",
+    festival: "фестивали",
+    concert: "концерты",
+  },
 };

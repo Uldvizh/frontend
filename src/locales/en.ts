@@ -5,9 +5,13 @@ export const en = {
     langRu: "RU",
   },
   home: {
-
     slide1: "Slide 1",
     slide2: "Slide 2",
     slide3: "Slide 3",
+  },
+  events: {
+    standup: "stand-up",
+    festival: "festival",
+    concert: "concert",
   },
 };
