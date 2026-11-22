@@ -10,6 +10,45 @@ const eventTypes = [
     { id: 'concert' }
 ];
 
+// Вынеси карточку в отдельный компонент
+const Card = ({ card, Lang }: { card: CardData, Lang: any }) => {
+    const [imgError, setImgError] = useState(false);
+    const typeCard = Lang.events?.[card.type as keyof typeof Lang.events];
+    
+    return (
+        <div className="card">
+            <img 
+                className="card-image" 
+                src={imgError ? defPic : card.img} 
+                alt={card.name} 
+                loading="lazy"
+                onError={() => setImgError(true)}
+            />
+            <div className="card-overlay" />
+            
+            <div className="card-badges-container">
+                {card.type && typeCard && (
+                    <div className="card-badge card-badge-type">
+                        {typeCard}
+                    </div>
+                )}
+                <div className={`card-badge ${card.minAge === 18 ? 'redlabel' : ''}`}>
+                    {card.minAge}+
+                </div>
+            </div>
+
+            <div className="card-content">
+                <h3 className="card-title">{card.name}</h3>
+                <div className="card-meta">
+                    <span className="card-meta-item">{card.date}</span>
+                    <span className="card-meta-item">{card.address}</span>
+                    <a href="" className="card-price-button">{card.price}₽</a>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 const GalleryBar = () => {
     const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
     const { Lang } = useLanguage(); 
@@ -23,6 +62,7 @@ const GalleryBar = () => {
             }
         });
     };
+    
     const filteredCards = selectedTypes.length > 0
         ? cardsData.filter(card => card.type && selectedTypes.includes(card.type))
         : cardsData;
@@ -66,42 +106,9 @@ const GalleryBar = () => {
                     <p>Нет мероприятий в выбранных категориях</p>
                 </div>
             ) : (
-                filteredCards.map((card) => {
-                    const typeCard = Lang.events?.[card.type as keyof typeof Lang.events];
-                    const [imgError, setImgError] = useState(false);
-                    return (
-                        <div className="card" key={card.id}>
-                         <img 
-                className="card-image" 
-                src={imgError ? defPic : card.img} 
-                alt={card.name} 
-                loading="lazy"
-                onError={() => setImgError(true)}
-            />
-                            <div className="card-overlay" />
-                    
-                            <div className="card-badges-container">
-                                {card.type && typeCard && (
-                                    <div className="card-badge card-badge-type">
-                                        {typeCard}
-                                    </div>
-                                )}
-                                <div className={`card-badge ${card.minAge === 18 ? 'redlabel' : ''}`}>
-                                    {card.minAge}+
-                                </div>
-                            </div>
-
-                            <div className="card-content">
-                                <h3 className="card-title">{card.name}</h3>
-                                <div className="card-meta">
-                                    <span className="card-meta-item">{card.date}</span>
-                                    <span className="card-meta-item">{card.address}</span>
-                                    <a href="" className="card-price-button">{card.price}₽</a>
-                                </div>
-                            </div>
-                        </div>
-                    );
-                })
+                filteredCards.map((card) => (
+                    <Card key={card.id} card={card} Lang={Lang} />
+                ))
             )}
         </div>
     );
