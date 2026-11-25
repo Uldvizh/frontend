@@ -106,6 +106,7 @@
   box-shadow: 0 0.4cqh 1.2cqh rgba(0, 0, 0, 0.3);
   transition:  1s ease, box-shadow 0.3s ease;
   inset: 0;
+  
 }
 .card::after{
   content: '';
@@ -130,7 +131,8 @@
 
 .card-image {
   width: 100%;
-  height: auto;
+  height: 100%;
+  min-height: 35cqh;
   display: block;
   transition: transform 0.5s ease;
   min-height: 15cqh;
@@ -157,12 +159,12 @@
   top: 0.75cqh;
   right: 0.75cqh;
   gap: .5cqh;
+  z-index: 2;
 }
 .card-badge {
   padding: 0.25cqh 0.6cqh;
   border-radius: 0.5cqh;
   background: rgba(114, 7, 116, 0.6);
-  backdrop-filter: blur(0.4cqh);
   color: #fff;
   font-size: 0.85cqh;
   font-weight: 700;
@@ -174,11 +176,12 @@
 
 .card-content {
   position: absolute;
+
   bottom: 0;
   left: 0;
   right: 0;
   padding: 1cqh;
-  z-index: 2;
+  z-index: 1;
   color: #ffffff;
   width: 100%;
   /* background-color: rgb(218, 218, 218); */
@@ -199,20 +202,20 @@
   
 }
 .card-price-button{
-  width: 5cqh;
   height: 2cqh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #da47ffc1;
+  background: #5d5b5e1d;
   font-size: 1.25cqh;
   text-decoration: 0;
   /* font-family: Sans Serif Collection; */
   color: #ffffff;
-  filter: drop-shadow(0 0 1cqh black);
+  filter: drop-shadow(0 0 1cqh rgb(177, 156, 233));
   border-radius: 2.5cqh;
   border: .1cqh solid rgba(237, 237, 237, 0.249);
   margin-top: .5cqh;
+  backdrop-filter: blur(1cqh);
 }
 .card-meta {
   display: flex;
