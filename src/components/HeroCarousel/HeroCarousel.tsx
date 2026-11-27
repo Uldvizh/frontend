@@ -12,7 +12,7 @@ interface HeroCarouselProps {
 }
 
 const AUTO_PLAY_DELAY = 5000;
-const TRANSITION_DURATION = 700;
+const TRANSITION_DURATION = 0;
 
 const HeroCarousel = ({ slides }: HeroCarouselProps) => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -22,7 +22,7 @@ const HeroCarousel = ({ slides }: HeroCarouselProps) => {
 
     const handleSlideChange = useCallback((newIndex: number, dir: 'next' | 'prev') => {
         if (isAnimating) return;
-        setIsAnimating(true);
+        setIsAnimating(true); // Исправлено: должно быть true при начале анимации
         setDirection(dir);
         setPrevIndex(currentIndex);
         setCurrentIndex(newIndex);
@@ -63,7 +63,8 @@ const HeroCarousel = ({ slides }: HeroCarouselProps) => {
                             className="slide-image" 
                             src={slide.image} 
                             alt={slide.title} 
-                            loading={index === 0 ? "eager" : "lazy"} 
+                            loading={index === 0 ? "eager" : "lazy"}
+                            style={{ transform: 'scale(1)', transition: 'none' }} // <-- Отключает увеличение
                         />
                         <div className="slide-overlay" />
                         

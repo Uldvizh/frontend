@@ -3,7 +3,9 @@ import Header from "./../components/Header/Header";
 import { useLanguage } from '../context/LanguageContext';
 import GalleryBar from "../components/GalleryBar/GalleryBar";
 import HeroCarousel from "../components/HeroCarousel/HeroCarousel";
-
+import slide1 from './../assets/slide1.png';
+import slide2 from './../assets/slide2.png';
+import slide3 from './../assets/slide3.png';
 const eventTypes = [
   { id: 'standup', name: 'Стендапы' },
   { id: 'festival', name: 'Фестивали' },
@@ -17,18 +19,15 @@ const Home = () => {
   const heroSlides: SlideData[] = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&q=80",
-      title: Lang.home.slide1 || "Добро пожаловать"
+      image: slide1,
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200&q=80",
-      title: Lang.home.slide2 || "Незабываемые эмоции"
+      image: slide2,
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&q=80",
-      title: Lang.home.slide3 || "Присоединяйтесь к нам"
+      image: slide3,
     }
   ];
 

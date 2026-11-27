@@ -4,7 +4,7 @@ import './Header.css';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { lang, setLang, Lang } = useLanguage();
+  const {Lang } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,8 +15,6 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Плавное смещение слайдера
-  const sliderTranslate = lang === 'en' ? '0' : 'calc(100% - 0.2cqh)';
 
   return (
     <header className={`header ${isScrolled ? 'header-collapsed' : 'header-expanded'}`}>
@@ -30,26 +28,7 @@ const Header = () => {
         </div>
 
         <div className="header-right">
-          <div className="language-toggle">
-            {/* Жидкий слайдер, который ездит под текстом */}
-            <div 
-              className="lang-slider"
-              style={{ transform: `translateX(${sliderTranslate})` }}
-            />
-            
-            <button 
-              className={`lang-btn ${lang === 'en' ? 'active' : ''}`}
-              onClick={() => setLang('en')}
-            >
-              {Lang.header.langEng}
-            </button>
-            <button 
-              className={`lang-btn ${lang === 'ru' ? 'active' : ''}`}
-              onClick={() => setLang('ru')}
-            >
-              {Lang.header.langRu}
-            </button>
-          </div>
+          
         </div>
       </div>
     </header>

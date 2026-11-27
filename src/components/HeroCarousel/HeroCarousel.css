@@ -64,7 +64,7 @@
     transform: scale(1.08); /* Медленное приближение */
 }
 
-.slide-overlay {
+/* .slide-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
@@ -74,7 +74,7 @@
         rgba(0, 0, 0, 0.1) 100%
     );
     pointer-events: none;
-}
+} */
 
 /* --- Контент --- */
 .slide-content {
@@ -85,7 +85,7 @@
     max-width: 60cqh;
     transform: translateY(2cqh);
     opacity: 0;
-    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+    /* transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.2s; */
 }
 
 .hero-slide.active .slide-content {
